@@ -1,0 +1,27 @@
+from prometheus_client import Gauge
+from prometheus_client.core import CollectorRegistry
+
+REGISTRY = CollectorRegistry(auto_describe=False)
+node_cpu_num = Gauge("node_cpu_num","CPU 数量",['cpu_num'],registry=REGISTRY)
+node_cpu_percent = Gauge("node_cpu_percent","CPU 使用率",['cpu_num'],registry=REGISTRY)
+node_memory_total = Gauge("node_memory_total","内存总字节数（bytes）",['memory'],registry=REGISTRY)
+node_memory_used = Gauge("node_memory_used","内存使用字节数（bytes）",['memory'],registry=REGISTRY)
+node_memory_available = Gauge("node_memory_available","内存可用字节数（bytes）",['memory'],registry=REGISTRY)
+node_memory_free = Gauge("node_memory_free","内存剩余字节数（bytes）",['memory'],registry=REGISTRY)
+node_memory_percent = Gauge("node_memory_percent","内存使用百分比（%）",['memory'],registry=REGISTRY)
+node_disk_total = Gauge("node_disk_total","磁盘总字节数（bytes）",["mountpoint","fstype"],registry=REGISTRY)
+node_disk_used = Gauge("node_disk_used","磁盘使用字节数（bytes）",["mountpoint","fstype"],registry=REGISTRY)
+node_disk_free = Gauge("node_disk_free","磁盘剩余字节数（bytes）",["mountpoint","fstype"],registry=REGISTRY)
+node_disk_percent = Gauge("nnode_disk_percent","磁盘使用百分比（%）",["mountpoint","fstype"],registry=REGISTRY)
+def clear_metrics():
+    node_cpu_num.clear()
+    node_cpu_percent.clear()
+    node_memory_total.clear()
+    node_memory_used.clear()
+    node_memory_available.clear()
+    node_memory_free.clear()
+    node_memory_percent.clear()
+    node_disk_total.clear()
+    node_disk_used.clear()
+    node_disk_free.clear()
+    node_disk_percent.clear()
