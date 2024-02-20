@@ -10,6 +10,6 @@
 # Db 指标
 指标地址：http://localhost:9088/db
 指标以db开头
-# Otheer 指标
+# Other 指标
 指标地址：http://localhost:9088/other
 指标以custom开头，自定义指标，读取config/custom.yaml中的指标
